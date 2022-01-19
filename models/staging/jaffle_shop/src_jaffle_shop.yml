@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: jaffle_shop
+    description: An application clone of postgress database
+    database: raw
+    schema: jaffle_shop
+    tables:
+      - name: customers
+        descrition: raw customers table
+      - name: orders
+        descrition: raw orders table

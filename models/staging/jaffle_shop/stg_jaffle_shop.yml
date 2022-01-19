@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: One unique customer id per row
+    columns: 
+      - name: customer_id
+        description: Unique key for stg_customers table
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_orders
+    columns:
+      - name: order_id
+        description: primay key of order table stage table
+        tests:
+          - unique
+          - not_null
+      - name: status
+        description: '{{ doc("order_status")}}'
+        tests:
+          - accepted_values:
+              values:
+                - completed
+                - shipped
+                - returned
+                - return_pending
+                - placed
